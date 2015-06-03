@@ -1,0 +1,121 @@
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.3
+*/
+
+.owl-item {
+	height: 500px;
+	display: table;
+}
+
+.owl-item > div {
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	padding: 140px 60px 60px 60px;
+	text-align: center;
+	line-height: normal;
+	position: relative;
+
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+.owl-item > div > div {
+	color: #fff;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+}
+
+.owl-theme .owl-controls{
+	text-align: center;
+}
+
+.owl-theme .owl-pagination {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+/* Styling Next and Prev buttons */
+
+.owl-theme .owl-controls .owl-buttons div{
+	position: absolute;
+	top: 280px;
+
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+
+	color: #FFF;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+	margin: 5px 15px;
+	font-size: 12px;
+	border-radius: 50%;
+	background: #027287;
+
+	-webkit-transition: .2s -webkit-transform;
+	transition: .2s transform;
+}
+
+.owl-theme .owl-prev {
+	left: 0px;
+	transform: translateX(-60px);
+}
+
+.owl-theme .owl-next {
+	right: 0px;
+	transform: translateX(60px);
+}
+
+.owl-theme:hover .owl-controls .owl-buttons div {
+	transform: translateX(0px);
+}
+
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span,
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	background: #027287;
+	text-decoration: none;
+}
+
+/* Styling Pagination*/
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin: 5px 7px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: #fff;
+}
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+/* preloading images */
+.owl-item.loading{
+	min-height: 150px;
+	background: url(../img/AjaxLoader.gif) no-repeat center center
+}

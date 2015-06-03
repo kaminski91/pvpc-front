@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -11,6 +12,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap.min
 //= require jquery_ujs
+//= require owl.carousel.min
+//= require main
 //= require turbolinks
 //= require_tree .
