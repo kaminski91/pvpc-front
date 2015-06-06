@@ -21,7 +21,13 @@
 			%script{:src => 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js'}
 	%body
 		%div.text-center.lead
-			%a{:href => '#'} Logowanie
+			= link_to 'Home', root_path
 			%br
-			%a{:href => '#'} Rejestracja
+			= link_to 'Logowanie', login_path
+			%br
+			= link_to 'Rejestracja', registration_path
+
+		= notice
 		= yield
+
+	

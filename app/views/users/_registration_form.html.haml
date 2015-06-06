@@ -1,0 +1,11 @@
+= form_tag(registration_path, method: :post) do |f|
+	%div.form-group
+		%label{:for => 'email'} Email
+		%input{:type => 'email', :name => 'email', :class => 'form-control', :placeholder => 'Adres e-mail'}
+	%div.form-group
+		%label{:for => 'nickname'} Nickname
+		%input{:type => 'nickname', :name => 'nickname', :class => 'form-control', :placeholder => 'Nickname'}
+	%div.form-group
+		%label{:for => 'password'} Email
+		%input{:type => 'password', :name => 'password', :class => 'form-control', :placeholder => 'Hasło'}
+	%button{:type => 'submit', :class => 'btn btn-default'} Załóż konto
