@@ -1,0 +1,16 @@
+es:
+  lang: Español
+  menu:
+    login: Identifíquese
+    registration: Inscripción
+    mobile:
+      auth: Login y registro
+    games: Juegos
+    transfer_market: Mercado de Transferencia
+    media: Medios
+    shop: Tienda
+    formu: Foro
+  hello: ¡Hola, mundo
+  welcome: 
+    one: Whats
+    sweet: Bienvenido a la casa de campo
