@@ -1,4 +1,15 @@
 en:
+  lang: English
+  menu:
+    login: Log in
+    registration: Sign up
+    mobile:
+      auth: Login and registration
+    games: Games
+    transfer_market: Transfer market
+    media: Media
+    shop: Shop
+    formu: Forum
   hello: Hello world
   welcome: 
     one: Jo

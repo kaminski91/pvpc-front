@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_lang
-  	session[:return_to] ||= request.referer
+  	session[:return_to] ||= request.referer || root_url
   	I18n.locale = params[:lang].to_sym
   	redirect_to session.delete(:return_to)
   end

@@ -9,9 +9,10 @@
 		%title PVP Center
 
 		/ Style
-		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+		%link{href: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', rel: 'stylesheet'}
 		%link{href: 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', rel: 'stylesheet', type: 'text/css'}
 		%link{href: 'http://fonts.googleapis.com/css?family=Roboto:400,700', rel: 'stylesheet', type: 'text/css'}
+		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
 
 		/ JS
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -20,19 +21,69 @@
 			%script{src: 'https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'}
 			%script{src: 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js'}
 	%body
-		%div.text-center.lead
-			= link_to 'Home', root_path
-			%br
-			= link_to 'Logowanie', login_path
-			%br
-			= link_to 'Rejestracja', registration_path
-			%br
-			%p
-				- I18n.available_locales.each do |l|
-					%a{href: set_lang_path(l.to_s)}
-						%span{class: "flag-icon flag-icon-#{l.to_s}"}
+		%div#site-header
+			%div.top-navbar
+				%div.container
+					%div.row
+						%div.col-md-4.col-sm-6.col-xs-8
+							= link_to image_tag("logo.png"), root_path, class: "logo"
+						%div.top-menu.col-md-8.col-sm-6.col-xs-4
+							%a{href: "#", class: "navbar-toggle menu-toggle", "data-toggle" => "collapse", "data-target" => "#main-menu"}
+								%span.glyphicon.glyphicon-menu-hamburger
+							%a{href: "#", class: "menu-toggle visible-xs sticky-visible tooltip-btn", "data-toggle" => "modal", "data-target" => "#myModal", title: t('menu.mobile.auth')}
+								%span.glyphicon.glyphicon-log-in
+							%ul.nav.navbar-nav.navbar-right.account-menu.sticky-hidden.hidden-xs
+								%li
+									%a{href: "#", "data-toggle" => "modal", "data-target" => "#myModal"}
+										= t 'menu.login'
+								%li
+									%a{href: "registration.html"}
+										= t 'menu.registration'
+
+			%div.main-menu-container
+				%div.container
+					%nav#main-menu.navigation.collapse.navbar-collapse
+						%ul.nav.navbar-nav
+							%li.dropdown.hidden-xs.hidden-sm
+								%a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", "aria-expanded" => "false"}
+									= t 'menu.games'
+									%span.caret	
+								%ul{class: "dropdown-menu", role: "menu"}
+									%li
+										%a{href: "#"} League of Legends
+									%li
+										%a{href: "#"} Fifa 15
+									%li
+										%a{href: "#"} CS:GO
+							%li.visible-xs-block.visible-sm-block
+								%a{href: "#"}
+									= t 'menu.games'
+							%li
+								%a{href: "#"}
+									= t 'menu.transfer_market'
+							%li
+								%a{href: "#"}
+									= t 'menu.media'
+							%li
+								%a{href: "#"}
+									= t 'menu.shop'
+							%li
+								%a{href: "#"}
+									= t 'menu.forum'
+							%li.dropdown
+								%a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", "aria-expanded" => "false"}
+									%span{class: "flag-icon flag-icon-#{I18n.locale.to_s}"}
+								%ul{class: "dropdown-menu"}
+									- I18n.available_locales.each do |l|
+										%li
+											%a{href: set_lang_path(l.to_s), 'data-turbolinks-track' => false}
+												%span{class: "flag-icon flag-icon-#{l.to_s}"}
+												= t 'lang', locale: l
+							%li.search-input
+								%input{ type: "text", class: "form-control"}
+							%li.search-toggle
+								%a{ href: "#"}
+									%i.fa.fa-search
 
 		= notice
 		= yield
-
-	

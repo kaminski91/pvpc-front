@@ -1,4 +1,15 @@
 pl:
+  lang: Polski
+  menu:
+    login: Logowanie
+    registration: Rejestracja
+    mobile:
+      auth: Logowanie i rejestracja
+    games: Gry
+    transfer_market: Rynek transferowy
+    media: Media
+    shop: Sklep
+    formu: Forum
   hello: Witaj świecie
   welcome: 
     one: Siema
