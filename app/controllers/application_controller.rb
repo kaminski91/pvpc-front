@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def set_lang
   	session[:return_to] ||= request.referer || root_url
   	I18n.locale = params[:lang].to_sym
-    cookies[:pvpc_user_lang] = params[:lang]
+    cookies[:pvpc_user_lang] = { :value => params[:lang], :expires => 1.year.from_now }
   	redirect_to session.delete(:return_to)
   end
 end
