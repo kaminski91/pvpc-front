@@ -1,0 +1,7 @@
+%h1 Edytuj profil
+
+= form_for current_user, url: user_path(current_user.id), method: "patch" do |f|
+	= f.label :nickname
+	= f.text_field :nickname
+
+	= f.submit 'Update'

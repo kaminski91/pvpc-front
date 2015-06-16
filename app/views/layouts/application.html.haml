@@ -79,7 +79,4 @@
 									%i.fa.fa-search
 
 		= notice
-		- if current_user 
-			-# = "#{session[:user_id]} | #{session[:user_token]} | #{session[:user_nickname]} | #{session[:user_email]}"
-			= current_user.id
 		= yield

@@ -1,0 +1,9 @@
+%h1 Profil użytkownika #{current_user.nickname}
+- if params[:id] == current_user.id.to_s
+	= link_to 'Edit', edit_user_path(current_user.id)
+
+%h4 Nickname
+%p #{current_user.nickname}
+
+%h4 Email
+%p #{current_user.email}

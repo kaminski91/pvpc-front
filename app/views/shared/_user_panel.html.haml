@@ -6,7 +6,7 @@
 
 	%ul.nav.navbar-nav.navbar-right.account-menu.logged-in
 		%li
-			%a{href: "player.html", class: "navbar-avatar"}
+			%a{href: "#{user_path(current_user.id)}", class: "navbar-avatar"}
 				= image_tag "member-icon.png"
 				%span.sticky-hidden.hidden-xs 
 					= current_user.nickname

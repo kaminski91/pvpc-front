@@ -1,4 +1,27 @@
 class UsersController < ApplicationController
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if params['user'][:nickname].blank?
+      redirect_to edit_user_path(current_user.id), notice: 'Wypełnij pola dziwko'
+      return
+    end
+
+    @api["users/#{current_user.id}"].patch id: current_user.id, access_token: current_user.token, user: {nickname: params['user'][:nickname]} do |response, request, result|
+      case response.code
+      when 204
+        redirect_to user_path, notice: "Profil zaktualizowany"
+        current_user.nickname = session[:user_nickname] = params['user'][:nickname]
+      else
+        redirect_to root_path, notice: "Ups coś poszło nie tak"
+      end
+    end
+  end
   
   def login
   end
