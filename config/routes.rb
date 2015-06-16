@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post '/registration', to: 'users#registration_auth'
   resources :users, only: [:index, :show, :edit, :update]
 
+  resources :games, only: [:index, :show]
+
 end

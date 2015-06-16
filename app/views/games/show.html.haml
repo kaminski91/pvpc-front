@@ -1,0 +1,13 @@
+%h1 
+	= @game['name']
+
+%h2 Rules
+%ol
+	- @game['rules'].each do |rule|
+		%li
+			= rule['name']
+			%ul
+				- rule['entries'].each do |entry|
+					%li 
+						%strong #{entry['key']}
+						= entry['value']

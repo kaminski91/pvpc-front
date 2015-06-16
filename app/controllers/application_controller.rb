@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_api
   before_action :load_lang
 
-  helper_method :current_user
+  helper_method :current_user, :games_list
 
   require 'rest-client'
 
@@ -22,6 +22,17 @@ class ApplicationController < ActionController::Base
   	I18n.locale = params[:lang].to_sym
     cookies[:pvpc_user_lang] = { :value => params[:lang], :expires => 1.year.from_now }
   	redirect_to session.delete(:return_to)
+  end
+
+  def games_list
+    @api["games"].get access_token: current_user.token do |response, request, result|
+      case response.code
+      when 200
+        @games_list = JSON.parse(response)
+      else
+        redirect_to root_path, notice: "Ups coś poszło nie tak"
+      end
+    end 
   end
 
   private

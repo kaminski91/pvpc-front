@@ -38,16 +38,13 @@
 					%nav#main-menu.navigation.collapse.navbar-collapse
 						%ul.nav.navbar-nav
 							%li.dropdown.hidden-xs.hidden-sm
-								%a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", "aria-expanded" => "false"}
+								%a{href: "#{games_path}", class: "dropdown-toggle", "data-toggle" => "dropdown", "aria-expanded" => "false"}
 									= t 'menu.games'
 									%span.caret	
 								%ul{class: "dropdown-menu", role: "menu"}
-									%li
-										%a{href: "#"} League of Legends
-									%li
-										%a{href: "#"} Fifa 15
-									%li
-										%a{href: "#"} CS:GO
+									- games_list.each do |game|
+										%li
+											= link_to game['name'], game_path(game['id'])
 							%li.visible-xs-block.visible-sm-block
 								%a{href: "#"}
 									= t 'menu.games'
