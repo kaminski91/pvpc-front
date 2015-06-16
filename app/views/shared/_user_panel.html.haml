@@ -1,0 +1,54 @@
+%div.top-menu.col-xs-8
+	%a{href: "#", class: "navbar-toggle menu-toggle", "data-toggle" => "collapse", "data-target" => "#main-menu"}
+		%span.glyphicon.glyphicon-menu-hamburger
+	%a{href: "#", class: "menu-toggle visible-xs sticky-visible tooltip-btn", title: "Wyloguj"}
+		%span.glyphicon.glyphicon-log-out
+
+	%ul.nav.navbar-nav.navbar-right.account-menu.logged-in
+		%li
+			%a{href: "player.html", class: "navbar-avatar"}
+				= image_tag "member-icon.png"
+				%span.sticky-hidden.hidden-xs 
+					= current_user.nickname
+		%li
+			%a{href: "#"} 
+				= "120" 
+				%i.fa.fa-credit-card
+		-# WIADOMOŚCI
+		%li.dropdown
+			%a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false"}
+				%i.fa.fa-envelope
+			%ul{class: "dropdown-menu", role: "menu"}
+				%li.nav-message.navbar-avatar
+					%a{href: "#"}
+						%span.time 10:21
+						= image_tag "member-icon.png"
+						%span
+							= current_user.nickname
+						%p Fingerstache health goth direct trade meditation, wayfarers twee Neutra bespoke sriracha mumblecore meggings Vice 3 wolf moon Intelligentsia four dollar toast. Asymmetrical kogi banh mi, iPhone fingerstache semiotics salvia jean shorts swag skateboard trust fund farm-to-table. McSweeney's keffiyeh ugh, plaid chia PBR banh mi small batch ethical selfies synth vinyl wolf retro. Jean shorts 90's +1 hashtag typewriter pug, synth Pinterest Pitchfork Kickstarter. Authentic street art banjo, biodiesel slow-carb typewriter kitsch wolf mustache swag four dollar toast flexitarian Blue Bottle put a bird on it mixtape. Butcher McSweeney's kogi, hoodie Bushwick Williamsburg selfies lo-fi DIY. Listicle XOXO selfies occupy cold-pressed +1.
+				%li.nav-message.navbar-avatar
+					%a{href: "#"}
+						%span.time 10:21
+						= image_tag "member-icon.png"
+						%span
+							= current_user.nickname
+						%p Lorem ipsum dolor pierdu pierdu
+				%li.nav-message.navbar-avatar
+					%a{href: "#"}
+						%span.time 10:21
+						= image_tag "member-icon.png"
+						%span
+							= current_user.nickname
+						%p Lorem ipsum dolor pierdu pierdu
+				%li.nav-message-more
+					%a{href: "#"} Zobacz wszystkie wiadomości
+		-# POWIADOMIENIA
+		%li.dropdown
+			%a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false"}
+				%i.fa.fa-globe
+			%ul{class: "dropdown-menu", role: "menu"}
+				%li.nav-message-more
+					%p Brak powiadomień
+
+		%li.sticky-hidden.hidden-xs
+			%a{href: "#{logout_path}"} Wyloguj

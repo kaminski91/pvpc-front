@@ -5,10 +5,12 @@ class ApplicationController < ActionController::Base
   before_action :set_api
   before_action :load_lang
 
+  helper_method :current_user
+
   require 'rest-client'
 
   def set_api
-  	@api = RestClient::Resource.new( 'https://pvpc-core.herokuapp.com/api/v1', 'pvpc', 'pefalpe987' )
+  	@api = RestClient::Resource.new( 'https://pvpc-core.herokuapp.com', 'pvpc', 'pefalpe987' )
   end
 
   def load_lang
@@ -21,4 +23,10 @@ class ApplicationController < ActionController::Base
     cookies[:pvpc_user_lang] = { :value => params[:lang], :expires => 1.year.from_now }
   	redirect_to session.delete(:return_to)
   end
+
+  private
+  def current_user
+    @current_user ||= session[:user_id] && User.new(id: session[:user_id], email: session[:user_email], nickname: session[:user_nickname], token: session[:user_token])
+  end
+
 end

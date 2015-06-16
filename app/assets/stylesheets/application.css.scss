@@ -341,7 +341,7 @@ padding: 15px 10px;
 	max-width: 400px;
 }
 
-.account-menu.logged-in .dropdown-menu > li > a {
+.account-menu.logged-in .dropdown-menu > li > a, .account-menu.logged-in .dropdown-menu > li > p {
 	position: relative;
 	padding: 10px;
 	-webkit-transition: none;

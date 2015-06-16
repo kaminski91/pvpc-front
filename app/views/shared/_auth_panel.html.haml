@@ -1,0 +1,13 @@
+%div.top-menu.col-md-8.col-sm-6.col-xs-4
+	%a{href: "#", class: "navbar-toggle menu-toggle", "data-toggle" => "collapse", "data-target" => "#main-menu"}
+		%span.glyphicon.glyphicon-menu-hamburger
+	%a{href: "#", class: "menu-toggle visible-xs sticky-visible tooltip-btn", "data-toggle" => "modal", "data-target" => "#myModal", title: t('menu.mobile.auth')}
+		%span.glyphicon.glyphicon-log-in
+	%ul.nav.navbar-nav.navbar-right.account-menu.sticky-hidden.hidden-xs
+		%li
+			-# %a{href: "#{login_path}", "data-toggle" => "modal", "data-target" => "#myModal"}
+			%a{href: "#{login_path}"}
+				= t 'menu.login'
+		%li
+			%a{href: "#{registration_path}"}
+				= t 'menu.registration'

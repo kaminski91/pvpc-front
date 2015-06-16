@@ -27,18 +27,11 @@
 					%div.row
 						%div.col-md-4.col-sm-6.col-xs-8
 							= link_to image_tag("logo.png"), root_path, class: "logo"
-						%div.top-menu.col-md-8.col-sm-6.col-xs-4
-							%a{href: "#", class: "navbar-toggle menu-toggle", "data-toggle" => "collapse", "data-target" => "#main-menu"}
-								%span.glyphicon.glyphicon-menu-hamburger
-							%a{href: "#", class: "menu-toggle visible-xs sticky-visible tooltip-btn", "data-toggle" => "modal", "data-target" => "#myModal", title: t('menu.mobile.auth')}
-								%span.glyphicon.glyphicon-log-in
-							%ul.nav.navbar-nav.navbar-right.account-menu.sticky-hidden.hidden-xs
-								%li
-									%a{href: "#", "data-toggle" => "modal", "data-target" => "#myModal"}
-										= t 'menu.login'
-								%li
-									%a{href: "registration.html"}
-										= t 'menu.registration'
+						- if current_user
+							= render 'shared/user_panel'
+						- else
+							= render 'shared/auth_panel'
+
 
 			%div.main-menu-container
 				%div.container
@@ -86,4 +79,7 @@
 									%i.fa.fa-search
 
 		= notice
+		- if current_user 
+			-# = "#{session[:user_id]} | #{session[:user_token]} | #{session[:user_nickname]} | #{session[:user_email]}"
+			= current_user.id
 		= yield
