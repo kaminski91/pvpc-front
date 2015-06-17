@@ -15,10 +15,11 @@ en:
     media: Media
     shop: Shop
     formu: Forum
+
   hello: Hello world
   welcome: 
     one: Jo
-    sweet: Welcome in da haus
+    sweet: Welcome
 
   login:
     header: Please log in
