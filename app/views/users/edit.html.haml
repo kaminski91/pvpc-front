@@ -1,7 +1,21 @@
-%h1 Edytuj profil
+.profile.player.col-md-9
+	.row
+		.menu
+			.logo
+				%img{class: "avatar", src: "#{image_path('member-icon.png')}"}
+				%img{class: "flag", src: "#{image_path('flag.png')}"}
+				%h3 #{current_user.nickname}
+			%ul
+				%li
+					%a{href: "#{user_path(current_user.id)}"} Profil
+		.content
 
-= form_for current_user, url: user_path(current_user.id), method: "patch" do |f|
-	= f.label :nickname
-	= f.text_field :nickname
+			%h1 Edytuj profil
 
-	= f.submit 'Update'
+			= form_for current_user, url: user_path(current_user.id), method: "patch", class: "edit-form" do |f|
+				.form-group
+					%h3 Nickname
+					= f.text_field :nickname, class: "form-control"
+				.row
+					.col-xs-12
+						%button.btn.btn-default.pull-right{type: "submit"} Update

@@ -1,4 +1,16 @@
-%h1 Games
-
-- @games.each do |game|
-	= link_to game['name'], game_path(game['id'])
+.games.col-md-9
+	%h1 Games
+	.row
+		- @games.each do |game|
+			.col-sm-6.col-md-4.game
+				%a{href: "#{game_path(game['id'])}", style: "background-image: url(#{image_path('game.jpg')});"}
+					.info
+						%h3 
+							= game['name']
+						.row
+							.col-xs-6
+								%i.fa.fa-calendar
+								= " 5"
+							.col-xs-6
+								%i.fa.fa-trophy
+								= " 7"
