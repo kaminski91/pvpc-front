@@ -74,7 +74,10 @@
 							%li.search-toggle
 								%a{ href: "#"}
 									%i.fa.fa-search
-		= notice
+		- if notice
+			.row
+				.alert.alert-info.col-xs-8.col-xs-offset-2.text-center
+					= notice
 		.content
 			.container
 				.row

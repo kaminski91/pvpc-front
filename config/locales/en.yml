@@ -2,7 +2,12 @@ en:
   lang: English
   menu:
     login: Log in
+    logout: Logout
     registration: Sign up
+    all_messages: All messages
+    no_messages: No messages
+    all_notifications: All notifications
+    no_notifications: No notifications
     mobile:
       auth: Login and registration
     games: Games
@@ -14,3 +19,15 @@ en:
   welcome: 
     one: Jo
     sweet: Welcome in da haus
+
+  login:
+    header: Please log in
+    submit: Log in
+  registration:
+    header: Create new account
+    submit: Create account
+  email:
+    short: Email
+    long: Email address
+  password: Password
+  nickname: Nickname

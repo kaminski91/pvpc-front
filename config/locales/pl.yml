@@ -2,7 +2,12 @@ pl:
   lang: Polski
   menu:
     login: Logowanie
+    logout: Wyloguj się
     registration: Rejestracja
+    all_messages: Zobacz wszystkie wiadomości
+    no_messages: Brak wiadomości
+    all_notifications: Zobacz wszystkie powiadomienia
+    no_notifications: Brak powiadomień
     mobile:
       auth: Logowanie i rejestracja
     games: Gry
@@ -14,3 +19,15 @@ pl:
   welcome: 
     one: Siema
     sweet: Witaj na chacie
+
+  login:
+    header: Proszę się zalogować
+    submit: Zaloguj się
+  registration:
+    header: Proszę założyć konto
+    submit: Załóż konto
+  email:
+    short: Email
+    long: Adres email
+  password: Hasło
+  nickname: Ksywa joł

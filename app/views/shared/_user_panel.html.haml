@@ -1,7 +1,7 @@
 %div.top-menu.col-xs-8
 	%a{href: "#", class: "navbar-toggle menu-toggle", "data-toggle" => "collapse", "data-target" => "#main-menu"}
 		%span.glyphicon.glyphicon-menu-hamburger
-	%a{href: "#", class: "menu-toggle visible-xs sticky-visible tooltip-btn", title: "Wyloguj"}
+	%a{href: "#{logout_path}", class: "menu-toggle visible-xs sticky-visible tooltip-btn", title: t('menu.logout')}
 		%span.glyphicon.glyphicon-log-out
 
 	%ul.nav.navbar-nav.navbar-right.account-menu.logged-in
@@ -41,14 +41,17 @@
 							= current_user.nickname
 						%p Lorem ipsum dolor pierdu pierdu
 				%li.nav-message-more
-					%a{href: "#"} Zobacz wszystkie wiadomości
+					%a{href: "#"}
+						= t('menu.all_messages')
 		-# POWIADOMIENIA
 		%li.dropdown
 			%a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false"}
 				%i.fa.fa-globe
 			%ul{class: "dropdown-menu", role: "menu"}
 				%li.nav-message-more
-					%p Brak powiadomień
+					%p
+						= t('menu.no_notifications')
 
 		%li.sticky-hidden.hidden-xs
-			%a{href: "#{logout_path}"} Wyloguj
+			%a{href: "#{logout_path}"} 
+				= t('menu.logout')
