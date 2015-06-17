@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
 
   def show
+    @api["users/#{params[:id]}/game_ownerships"].get access_token: current_user.token do |response, request, result|
+      @user_games = response.code
+    end
+
+    @api["users/#{params[:id]}/friendships"].get user_id: params[:id], access_token: current_user.token do |response, request, result|
+      @user_friends = response.code
+    end
+
+    @tmp_user = params[:id]
   end
 
   def edit
@@ -57,9 +66,16 @@ class UsersController < ApplicationController
   		return
   	end
 
-  	response = @api['users'].post user: {email: params[:email], nickname: params[:nickname], password: params[:password]}
-
-  	redirect_to root_path, notice: "#{email} | #{nickname} | #{password}"
+    @api['users'].post user: {email: params[:email], nickname: params[:nickname], password: params[:password]} do |response, request, result|
+      case response.code
+      when 200
+        user_data = JSON.parse(response)
+        login_user(user_data["id"], user_data["email"], user_data["nickname"], user_data["access_token"])
+        redirect_to root_path, notice: "Witaj #{session[:user_nickname]}. Twoje konto zostało utworzone"
+      else
+        redirect_to root_path, notice: "Ups coś poszło nie tak"
+      end
+    end
   end
 
   def logout

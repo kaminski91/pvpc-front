@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def games_list
-    @api["games"].get access_token: current_user.token do |response, request, result|
+    @api["games"].get do |response, request, result|
       case response.code
       when 200
         @games_list = JSON.parse(response)

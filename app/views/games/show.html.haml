@@ -1,13 +1,32 @@
-%h1 
-	= @game['name']
-
-%h2 Rules
-%ol
-	- @game['rules'].each do |rule|
-		%li
-			= rule['name']
+.profile.game.col-md-9
+	.row
+		.menu
+			.logo
+				= image_tag "lol-icon.png", class: "avatar"
 			%ul
-				- rule['entries'].each do |entry|
-					%li 
-						%strong #{entry['key']}
-						= entry['value']
+				%li
+					%a.active{href: "#"} Informacje
+		.content
+			%h1.name
+				%span 
+					= @game['name']
+			 
+			%h3 Opis gry
+			%p Butcher locavore vegan chillwave fingerstache. Post-ironic meditation artisan Wes Anderson polaroid. Fap tofu High Life seitan raw denim. Readymade 90's keytar, viral kale chips gastropub pork belly Portland hoodie paleo. Slow-carb bicycle rights tilde, bespoke leggings kitsch health goth meditation brunch trust fund Vice cardigan polaroid whatever Neutra. Meh PBR&B before they sold out art party polaroid quinoa, Wes Anderson sartorial ennui skateboard Schlitz. Direct trade before they sold out biodiesel flannel, asymmetrical Echo Park swag salvia.
+
+			%h3 Zasady
+			.row.rules{role: "tabpanel"}
+				%ul.nav.nav-stacked.col-sm-4{role: "tablist"}
+					- @game['rules'].each_with_index do |rule, i|
+						%li{role: "presentation", class: "#{(i == 0)? 'active': ''}"}
+							%a{"aria-controls" => "rules-#{rule['id']}", "data-toggle" => "tab", :href => "#rules-#{rule['id']}", :role => "tab"}
+								= rule['name']
+
+				.tab-content.col-sm-8
+					- @game['rules'].each do |rule|
+						.tab-pane.active{:role => "tabpanel", id: "rules-#{rule['id']}"}
+							- rule['entries'].each do |entry|
+								%h4
+									= entry['key']
+								%p
+									= entry['value']

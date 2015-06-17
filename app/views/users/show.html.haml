@@ -1,9 +1,74 @@
-%h1 Profil użytkownika #{current_user.nickname}
-- if params[:id] == current_user.id.to_s
-	= link_to 'Edit', edit_user_path(current_user.id)
+.profile.player.col-md-9
+	.row
+		.menu
+			.logo
+				%img{class: "avatar", src: "#{image_path('member-icon.png')}"}
+				%img{class: "flag", src: "#{image_path('flag.png')}"}
+				%h3 #{current_user.nickname}
+			%ul
+				%li
+					%a.active{href: "#{user_path(current_user.id)}"} Profil
+		.content
+			%h1.name
+				%span Profil użytkownika #{current_user.nickname}
+			.extra-menu
+				- if params[:id] == current_user.id.to_s
+					%a{href: "#{edit_user_path(current_user.id)}", class: "admin-item"}
+						%i.fa.fa-pencil-square-o
+				- else 
+					%a{href: "#", class: "guest-item fight"}
+						= image_tag("challenge.png")
 
-%h4 Nickname
-%p #{current_user.nickname}
+			%h3 Nickname
+			%p #{current_user.nickname}
 
-%h4 Email
-%p #{current_user.email}
+			%h3 Ranking
+			%p #123
+
+			%h3 Narodowość
+			%p Polska
+
+			%h3 Płeć
+			%p Mężczyzna
+
+			%h3 Wiek
+			%p 25
+
+			%h3 O sobie
+			%p Jestem pro elo elo
+
+			%h3 Zdobyte odznaki
+			.row.icons
+				.col-md-2
+					%a{href: "#"}
+						= image_tag("badge.jpg")
+				.col-md-2
+					%a{href: "#"}
+						= image_tag("badge.jpg")
+				.col-md-2
+					%a{href: "#"}
+						= image_tag("badge.jpg")
+				.col-md-2
+					%a{href: "#"}
+						= image_tag("badge.jpg")
+
+			%h3 Gry
+			.row.icons
+				.col-md-2
+					-# %a{href: "#"}
+					-# 	= image_tag("lol-icon.png")
+					= @user_games
+
+			%h3 Friends
+			%p #{@user_friends}
+
+			%h3 Dodatkowe informacje
+			.moreinfo
+				%h4 Facebook
+				%a{href: "#"} facebook.com/fnatic
+				%h4 Twitch.tv
+				%a{href: "#"} twitch.tv/fnatic
+				%h4 Steam
+				%a{href: "#"} steam.com/fnatic
+				%h4 Januszowo
+				%a{href: "#"} januszowo.cebula/fnatic

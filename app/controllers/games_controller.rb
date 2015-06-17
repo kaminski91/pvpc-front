@@ -11,7 +11,7 @@ class GamesController < ApplicationController
 	end
 
 	def show
-		@api["games/#{params[:id]}"].get access_token: current_user.token, id: params[:id] do |response, request, result|
+		@api["games/#{params[:id]}"].get id: params[:id] do |response, request, result|
 			case response.code
 			when 200
 				@game = JSON.parse(response)
